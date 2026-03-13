@@ -50,7 +50,7 @@ Implementação incremental do RunSpec Contract seguindo a arquitetura DDD defin
     - Validação: effective ⊆ permitted ⊆ bounding; seccomp requer no_new_privs=True
     - _Requisitos: 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8_
 
-  - [ ]* 2.7 Escrever testes unitários para todos os Value Objects
+  - [ ] 2.7 Escrever testes unitários para todos os Value Objects
     - Testes de construção válida e inválida para cada Value Object
     - Edge cases: argv vazio, chave com `=`, hostname com hífen no início, cpu.quota > period, memória < 4MiB
     - _Requisitos: 3.1, 4.4, 5.6, 6.2, 7.4, 7.5, 8.3, 8.6_

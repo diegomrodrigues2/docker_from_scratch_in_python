@@ -14,6 +14,11 @@ The goal is to produce production-grade code that is readable, deterministic, te
 
 Avoid clever or magical code. Prefer explicitness and clarity.
 
+For this repository specifically, complex infrastructure code such as kernel
+probing, syscall wrappers, bootstrap wiring, orchestration, and security setup
+MUST receive extra documentation effort. When editing those areas, prefer
+longer, didactic explanations over terse code.
+
 ---
 
 # Core Philosophy
@@ -148,6 +153,45 @@ retry_attempt += 1
 ```
 
 Complex functions must begin with a **short didatic explanation block**.
+
+For this repository, prefer **Google-style docstrings** for important modules,
+classes, and methods.
+
+These docstrings and comments should, when relevant, explain:
+
+- which requirement(s) from `specs/run_spec/requirements.md` the code is implementing
+- which section or concept from `specs/run_spec/design.md` the code is following
+- the step-by-step flow of the algorithm
+- the invariants being protected
+- why a specific implementation decision was chosen
+
+For complex orchestration code, do not stop at a one-line summary. Add a short
+didactic block that helps a human reader understand the full execution flow.
+
+For kernel, syscall, namespace, cgroup, seccomp, mount, and other low-level
+runtime code, comments should explicitly explain:
+
+- what is being probed or configured
+- why the operation is safe
+- why a specific errno/result implies feature support or absence
+- what the step means in terms of the container runtime design
+
+If the code is hard to follow without Linux internals knowledge, it is
+under-documented.
+
+When generating new code or editing existing code, prefer:
+
+- module docstrings with architectural context
+- class docstrings with responsibility and invariants
+- method docstrings with `Args:`, `Returns:`, and `Raises:` when applicable
+- short inline comments before non-obvious blocks
+
+The goal is that a human should be able to read the code and understand:
+
+- what it does
+- why it exists
+- how it connects to the spec
+- what happens step by step
 
 Example:
 
