@@ -1,2 +1,5 @@
 # docker_from_scratch_in_python
-A Docker implementation from scratch in Python, C++ and Cython
+
+Implementacao de um runtime de containers em Python, Cython e C++.
+
+A documentacao detalhada sobre o estado atual do `RunSpec` foi movida para [docs/README.md](docs/README.md).
